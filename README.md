@@ -26,20 +26,15 @@ ios Utils oc的工具库
  *  return  产生倒影后的View。
  */
 + (UIView *)reflectImage:(UIImage *)image withFrame:(CGRect)frame opacity:(CGFloat)opacity atView:(UIView *)view;
-
 //开始和停止旋转动画
 - (void)startRotationAnimatingWithDuration:(CGFloat)duration;
 @interface UIView (Animation)
-
 //揭开
 + (void)animationReveal:(UIView *)view direction:(NSString *)direction;
-
 //渐隐渐消
 + (void)animationFade:(UIView *)view;
-
 //翻转
 + (void)animationFlip:(UIView *)view direction:(NSString *)direction;
-
 //旋转缩放
 + (void)animationRotateAndScaleEffects:(UIView *)view;//各种旋转缩放效果。
 + (void)animationRotateAndScaleDownUp:(UIView *)view;//旋转同时缩小放大效果
