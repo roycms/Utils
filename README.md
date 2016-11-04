@@ -1,6 +1,20 @@
 # Utils
 ios Utils oc的工具库
 
+## 验证框架
+```objective-c
++ (BOOL)isValidateEmail:(NSString *)email;//邮箱符合性验证。
++ (BOOL)isNumber:(NSString *)string;//全是数字。
++ (BOOL)isEnglishWords:(NSString *)string;//验证英文字母。
++ (BOOL)isValidatePassword:(NSString *)string;//验证密码：6—16位，只能包含字符、数字和 下划线。
++ (BOOL)isChineseWords:(NSString *)string;//验证是否为汉字。
++ (BOOL)isInternetUrl:(NSString *)string;//验证是否为网络链接。
+//正确格式为：XXXX-XXXXXXX，XXXX-XXXXXXXX，XXX-XXXXXXX，XXX-XXXXXXXX，XXXXXXX，XXXXXXXX
++ (BOOL)isPhoneNumber:(NSString *)string;//验证是否为电话号码。
++ (BOOL)isElevenDigitNum:(NSString *)string;
++ (BOOL)isIdentifyCardNumber:(NSString *)string;//验证15或18位身份证。
+```
+
 ## Category
 ```objective-c
 /**
@@ -29,26 +43,19 @@ ios Utils oc的工具库
 //旋转缩放
 + (void)animationRotateAndScaleEffects:(UIView *)view;//各种旋转缩放效果。
 + (void)animationRotateAndScaleDownUp:(UIView *)view;//旋转同时缩小放大效果
-
 //push
 + (void)animationPush:(UIView *)view direction:(NSString *)direction;
-
 //Curl UnCurl
 + (void)animationCurl:(UIView *)view direction:(NSString *)direction;
 + (void)animationUnCurl:(UIView *)view direction:(NSString *)direction;
-
 //Move
 + (void)animationMove:(UIView *)view direction:(NSString *)direction;
-
 //立方体
 + (void)animationCube:(UIView *)view direction:(NSString *)direction;
-
 //水波纹
 + (void)animationRippleEffect:(UIView *)view;
-
 //相机开合
 + (void)animationCameraEffect:(UIView *)view type:(NSString *)type;
-
 //吸收
 + (void)animationSuckEffect:(UIView *)view;
 @interface UIImage (Addition)
