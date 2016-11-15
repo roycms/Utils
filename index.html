@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Utils by roycms</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Utils</h1>
+      <h2 class="project-tagline">ios Utils oc的工具库</h2>
+      <a href="https://github.com/roycms/Utils" class="btn">View on GitHub</a>
+      <a href="https://github.com/roycms/Utils/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/roycms/Utils/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="utils" class="anchor" href="#utils" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Utils</h1>
+
+<p>ios Utils oc的工具库</p>
+
+<h2>
+<a id="验证框架" class="anchor" href="#%E9%AA%8C%E8%AF%81%E6%A1%86%E6%9E%B6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>验证框架</h2>
+
+<div class="highlight highlight-source-objc"><pre>+ (<span class="pl-c1">BOOL</span>)isValidateEmail:(<span class="pl-c1">NSString</span> *)email;<span class="pl-c">//邮箱符合性验证。</span>
++ (<span class="pl-c1">BOOL</span>)isNumber:(<span class="pl-c1">NSString</span> *)string;<span class="pl-c">//全是数字。</span>
++ (<span class="pl-c1">BOOL</span>)isEnglishWords:(<span class="pl-c1">NSString</span> *)string;<span class="pl-c">//验证英文字母。</span>
++ (<span class="pl-c1">BOOL</span>)isValidatePassword:(<span class="pl-c1">NSString</span> *)string;<span class="pl-c">//验证密码：6—16位，只能包含字符、数字和 下划线。</span>
++ (<span class="pl-c1">BOOL</span>)isChineseWords:(<span class="pl-c1">NSString</span> *)string;<span class="pl-c">//验证是否为汉字。</span>
++ (<span class="pl-c1">BOOL</span>)isInternetUrl:(<span class="pl-c1">NSString</span> *)string;<span class="pl-c">//验证是否为网络链接。</span>
+<span class="pl-c">//正确格式为：XXXX-XXXXXXX，XXXX-XXXXXXXX，XXX-XXXXXXX，XXX-XXXXXXXX，XXXXXXX，XXXXXXXX</span>
++ (<span class="pl-c1">BOOL</span>)isPhoneNumber:(<span class="pl-c1">NSString</span> *)string;<span class="pl-c">//验证是否为电话号码。</span>
++ (<span class="pl-c1">BOOL</span>)isElevenDigitNum:(<span class="pl-c1">NSString</span> *)string;
++ (<span class="pl-c1">BOOL</span>)isIdentifyCardNumber:(<span class="pl-c1">NSString</span> *)string;<span class="pl-c">//验证15或18位身份证。</span></pre></div>
+
+<h2>
+<a id="category" class="anchor" href="#category" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Category</h2>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c">/**</span>
+<span class="pl-c"> *  产生一个Image的倒影，并把这个倒影图片加在一个View上面。</span>
+<span class="pl-c"> *  @param  image :被倒影的原图。</span>
+<span class="pl-c"> *  @param  frame :盖在上面的图。</span>
+<span class="pl-c"> *  @param  opacity :倒影的透明度，0为完全透明，即倒影不可见;1为完全不透明。</span>
+<span class="pl-c"> *  @param  view :倒影加载在上面。</span>
+<span class="pl-c"> *  return  产生倒影后的View。</span>
+<span class="pl-c"> */</span>
++ (UIView *)reflectImage:(UIImage *)image withFrame:(<span class="pl-c1">CGRect</span>)frame opacity:(<span class="pl-c1">CGFloat</span>)opacity atView:(UIView *)view;
+<span class="pl-c">//开始和停止旋转动画</span>
+- (<span class="pl-k">void</span>)startRotationAnimatingWithDuration:(<span class="pl-c1">CGFloat</span>)duration;
+<span class="pl-k">@interface</span> <span class="pl-en">UIView</span> (Animation)
+<span class="pl-c">//揭开</span>
++ (<span class="pl-k">void</span>)<span class="pl-en">animationReveal</span><span class="pl-en">:</span>(UIView *)<span class="pl-smi">view</span> <span class="pl-en">direction</span><span class="pl-en">:</span>(<span class="pl-c1">NSString</span> *)<span class="pl-smi">direction</span>;
+<span class="pl-c">//渐隐渐消</span>
++ (<span class="pl-k">void</span>)<span class="pl-en">animationFade</span><span class="pl-en">:</span>(UIView *)<span class="pl-smi">view</span>;
+<span class="pl-c">//翻转</span>
++ (<span class="pl-k">void</span>)<span class="pl-en">animationFlip</span><span class="pl-en">:</span>(UIView *)<span class="pl-smi">view</span> <span class="pl-en">direction</span><span class="pl-en">:</span>(<span class="pl-c1">NSString</span> *)<span class="pl-smi">direction</span>;
+<span class="pl-c">//旋转缩放</span>
++ (<span class="pl-k">void</span>)<span class="pl-en">animationRotateAndScaleEffects</span><span class="pl-en">:</span>(UIView *)<span class="pl-smi">view</span>;<span class="pl-c">//各种旋转缩放效果。</span>
++ (<span class="pl-k">void</span>)<span class="pl-en">animationRotateAndScaleDownUp</span><span class="pl-en">:</span>(UIView *)<span class="pl-smi">view</span>;<span class="pl-c">//旋转同时缩小放大效果</span>
+<span class="pl-c">//push</span>
++ (<span class="pl-k">void</span>)<span class="pl-en">animationPush</span><span class="pl-en">:</span>(UIView *)<span class="pl-smi">view</span> <span class="pl-en">direction</span><span class="pl-en">:</span>(<span class="pl-c1">NSString</span> *)<span class="pl-smi">direction</span>;
+<span class="pl-c">//Curl UnCurl</span>
++ (<span class="pl-k">void</span>)<span class="pl-en">animationCurl</span><span class="pl-en">:</span>(UIView *)<span class="pl-smi">view</span> <span class="pl-en">direction</span><span class="pl-en">:</span>(<span class="pl-c1">NSString</span> *)<span class="pl-smi">direction</span>;
++ (<span class="pl-k">void</span>)<span class="pl-en">animationUnCurl</span><span class="pl-en">:</span>(UIView *)<span class="pl-smi">view</span> <span class="pl-en">direction</span><span class="pl-en">:</span>(<span class="pl-c1">NSString</span> *)<span class="pl-smi">direction</span>;
+<span class="pl-c">//Move</span>
++ (<span class="pl-k">void</span>)<span class="pl-en">animationMove</span><span class="pl-en">:</span>(UIView *)<span class="pl-smi">view</span> <span class="pl-en">direction</span><span class="pl-en">:</span>(<span class="pl-c1">NSString</span> *)<span class="pl-smi">direction</span>;
+<span class="pl-c">//立方体</span>
++ (<span class="pl-k">void</span>)<span class="pl-en">animationCube</span><span class="pl-en">:</span>(UIView *)<span class="pl-smi">view</span> <span class="pl-en">direction</span><span class="pl-en">:</span>(<span class="pl-c1">NSString</span> *)<span class="pl-smi">direction</span>;
+<span class="pl-c">//水波纹</span>
++ (<span class="pl-k">void</span>)<span class="pl-en">animationRippleEffect</span><span class="pl-en">:</span>(UIView *)<span class="pl-smi">view</span>;
+<span class="pl-c">//相机开合</span>
++ (<span class="pl-k">void</span>)<span class="pl-en">animationCameraEffect</span><span class="pl-en">:</span>(UIView *)<span class="pl-smi">view</span> <span class="pl-en">type</span><span class="pl-en">:</span>(<span class="pl-c1">NSString</span> *)<span class="pl-smi">type</span>;
+<span class="pl-c">//吸收</span>
++ (<span class="pl-k">void</span>)<span class="pl-en">animationSuckEffect</span><span class="pl-en">:</span>(UIView *)<span class="pl-smi">view</span>;
+<span class="pl-k">@interface</span> <span class="pl-en">UIImage</span> (Addition)
+
+<span class="pl-c">/**</span>
+<span class="pl-c"> *  抓取屏幕。</span>
+<span class="pl-c"> *  @param  scale :屏幕放大倍数，1为原尺寸。</span>
+<span class="pl-c"> *  return  屏幕后的Image。</span>
+<span class="pl-c"> */</span>
++ (UIImage *)<span class="pl-en">grabScreenWithScale</span><span class="pl-en">:</span>(<span class="pl-c1">CGFloat</span>)<span class="pl-smi">scale</span>;
+
+<span class="pl-c">/**</span>
+<span class="pl-c"> *  抓取UIView及其子类。</span>
+<span class="pl-c"> *  @param  view : UIView及其子类。</span>
+<span class="pl-c"> *  @param  scale :屏幕放大倍数，1为原尺寸。</span>
+<span class="pl-c"> *  return  抓取图片后的Image。</span>
+<span class="pl-c"> */</span>
++ (UIImage *)<span class="pl-en">grabImageWithView</span><span class="pl-en">:</span>(UIView *)<span class="pl-smi">view</span> <span class="pl-en">scale</span><span class="pl-en">:</span>(<span class="pl-c1">CGFloat</span>)<span class="pl-smi">scale</span>;
+
+<span class="pl-c">/**</span>
+<span class="pl-c"> *  合并两个Image。</span>
+<span class="pl-c"> *  @ param  image1、image2: 两张图片。</span>
+<span class="pl-c"> *  @ param  frame1、frame2:两张图片放置的位置。</span>
+<span class="pl-c"> *  @ param  size:返回图片的尺寸。</span>
+<span class="pl-c"> *  return  合并后的两个图片的Image。</span>
+<span class="pl-c"> */</span>
++ (UIImage *)<span class="pl-en">mergeWithImage1</span><span class="pl-en">:</span>(UIImage *)<span class="pl-smi">image1</span> <span class="pl-en">image2</span><span class="pl-en">:</span>(UIImage *)<span class="pl-smi">image2</span> <span class="pl-en">frame1</span><span class="pl-en">:</span>(<span class="pl-c1">CGRect</span>)<span class="pl-smi">frame1</span> <span class="pl-en">frame2</span><span class="pl-en">:</span>(<span class="pl-c1">CGRect</span>)<span class="pl-smi">frame2</span> <span class="pl-en">size</span><span class="pl-en">:</span>(<span class="pl-c1">CGSize</span>)<span class="pl-smi">size</span>;
+
+<span class="pl-c">/**</span>
+<span class="pl-c"> *  把一个Image盖在另一个Image上面。</span>
+<span class="pl-c"> *  @ param  image : 底图。</span>
+<span class="pl-c"> *  @param  mask :盖在上面的图。</span>
+<span class="pl-c"> *  return  Image。</span>
+<span class="pl-c"> */</span>
++ (UIImage *)<span class="pl-en">maskImage</span><span class="pl-en">:</span>(UIImage *)<span class="pl-smi">image</span> <span class="pl-en">withMask</span><span class="pl-en">:</span>(UIImage *)<span class="pl-smi">mask</span>;
+
+<span class="pl-c">/**</span>
+<span class="pl-c"> *  把一个Image尺寸缩放到另一个尺寸。</span>
+<span class="pl-c"> *  @ param  view : UIView及其子类。</span>
+<span class="pl-c"> *  @ param  scale :屏幕放大倍数，1为原尺寸。</span>
+<span class="pl-c"> *  return  尺寸更改后的Image。</span>
+<span class="pl-c"> */</span>
++ (UIImage *)<span class="pl-en">scaleImage</span><span class="pl-en">:</span>(UIImage *)<span class="pl-smi">image</span> <span class="pl-en">toSize</span><span class="pl-en">:</span>(<span class="pl-c1">CGSize</span>)<span class="pl-smi">size</span>;
+
+<span class="pl-c">/**</span>
+<span class="pl-c"> *  改变一个Image的色彩。</span>
+<span class="pl-c"> *  @ param  image : 被改变的Image。</span>
+<span class="pl-c"> *  @ param  color : 要改变的目标色彩。</span>
+<span class="pl-c"> *  return  色彩更改后的Image。</span>
+<span class="pl-c"> */</span>
++(UIImage *)<span class="pl-en">colorizeImage</span><span class="pl-en">:</span>(UIImage *)<span class="pl-smi">image</span> <span class="pl-en">withColor</span><span class="pl-en">:</span>(UIColor *)<span class="pl-smi">color</span>;
+
+<span class="pl-c">//按frame裁减图片</span>
++ (UIImage *)<span class="pl-en">captureView</span><span class="pl-en">:</span>(UIView *)<span class="pl-smi">view</span> <span class="pl-en">frame</span><span class="pl-en">:</span>(<span class="pl-c1">CGRect</span>)<span class="pl-smi">frame</span>;
+<span class="pl-c">/** 获取设备型号*/</span>
++ (<span class="pl-c1">NSString</span> *)<span class="pl-en">deviceVersion</span>;
+
+<span class="pl-c">/** 获取iOS系统的版本号 */</span>
++ (<span class="pl-c1">NSString</span>*)<span class="pl-en">systemVersion</span>;
+
+<span class="pl-c">/** 判断当前设备是否ipad */</span>
++ (<span class="pl-c1">BOOL</span>)<span class="pl-en">isIpad</span>;
+
+<span class="pl-c">/** 判断当前设备是否iphone */</span>
++ (<span class="pl-c1">BOOL</span>)<span class="pl-en">isIphone</span>;
+
+<span class="pl-c">/** 判断当前系统是否有摄像头 */</span>
++ (<span class="pl-c1">BOOL</span>)<span class="pl-en">hasCamera</span>;
+
+<span class="pl-c">//获取设备状态，是否插入耳机，如果插入耳机，则返回“YES"</span>
+<span class="pl-c">//+ (BOOL)isHeadphone;</span>
+
+<span class="pl-c">//获取用户语言。</span>
++ (<span class="pl-c1">NSString</span> *)<span class="pl-en">userPreferLanguages</span>;
+
+<span class="pl-c">//判断是否为5系列。</span>
++ (<span class="pl-c1">BOOL</span>)<span class="pl-en">isIphone5OriPod5</span>;
+- (<span class="pl-c1">NSString</span> *)<span class="pl-en">platformInfo</span>;        <span class="pl-c">//平台信息</span>
+- (<span class="pl-c1">NSString</span> *)<span class="pl-en">cpuType</span>;             <span class="pl-c">//cpu型号</span>
+- (<span class="pl-c1">NSString</span> *)<span class="pl-en">cpuFrequency</span>;        <span class="pl-c">//cpu频率</span>
+- (<span class="pl-c1">NSUInteger</span>)<span class="pl-en">cpuCount</span>;            <span class="pl-c">//cpu核数</span>
+- (<span class="pl-c1">NSArray</span> *)<span class="pl-en">cpuUsage</span>;                 <span class="pl-c">//cpu利用率</span>
+- (<span class="pl-c1">NSUInteger</span>)<span class="pl-en">totalMemoryBytes</span>;    <span class="pl-c">//获取手机内存总量,返回的是字节数</span>
+- (<span class="pl-c1">NSUInteger</span>)<span class="pl-en">freeMemoryBytes</span>;     <span class="pl-c">//获取手机可用内存,返回的是字节数</span>
+- (<span class="pl-k">long</span> <span class="pl-k">long</span>)<span class="pl-en">freeDiskSpaceBytes</span>;   <span class="pl-c">//获取手机硬盘空闲空间,返回的是字节数</span>
+- (<span class="pl-k">long</span> <span class="pl-k">long</span>)<span class="pl-en">totalDiskSpaceBytes</span>;  <span class="pl-c">//获取手机硬盘总空间,返回的是字节数</span>
+- (<span class="pl-c1">BOOL</span>)<span class="pl-en">isJailBreak</span>;               <span class="pl-c">//是否越狱</span>
+- (<span class="pl-c1">BOOL</span>)<span class="pl-en">bluetoothCheck</span>;            <span class="pl-c">//是否支持蓝牙</span>
+
+#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">&lt;</span>UIKit/UIKit.h<span class="pl-pds">&gt;</span></span>
+
+<span class="pl-k">@interface</span> <span class="pl-en">UIColor</span> (Addition)
+
+<span class="pl-c">/**</span>
+<span class="pl-c"> *  根据RGB返回UIColor。</span>
+<span class="pl-c"> *  @ param  red、green、blue :范围0—255。</span>
+<span class="pl-c"> *  @param  alpha :透明度。</span>
+<span class="pl-c"> *  return  UIColor。</span>
+<span class="pl-c"> */</span>
++ (UIColor *)<span class="pl-en">red</span><span class="pl-en">:</span>(<span class="pl-k">int</span>)<span class="pl-smi">red</span> <span class="pl-en">green</span><span class="pl-en">:</span>(<span class="pl-k">int</span>)<span class="pl-smi">green</span> <span class="pl-en">blue</span><span class="pl-en">:</span>(<span class="pl-k">int</span>)<span class="pl-smi">blue</span> <span class="pl-en">alpha</span><span class="pl-en">:</span>(<span class="pl-c1">CGFloat</span>)<span class="pl-smi">alpha</span>;
+
+<span class="pl-c">/**</span>
+<span class="pl-c"> *  根据UIColor返回RGB数组。</span>
+<span class="pl-c"> *  @ param  color :传递的参数。</span>
+<span class="pl-c"> *  return  RGB数组</span>
+<span class="pl-c"> */</span>
++ (<span class="pl-c1">NSArray</span> *)<span class="pl-en">convertColorToRBG</span><span class="pl-en">:</span>(UIColor *)<span class="pl-smi">color</span>;
+
+<span class="pl-c">/**</span>
+<span class="pl-c"> *  根据十六进制颜色值返回UIColor。</span>
+<span class="pl-c"> *  @param  hexColor</span>
+<span class="pl-c"> *  return  UIColor。</span>
+<span class="pl-c"> */</span>
++ (UIColor *)<span class="pl-en">convertHexColorToUIColor</span><span class="pl-en">:</span>(<span class="pl-c1">NSInteger</span>)<span class="pl-smi">hexColor</span>;
+<span class="pl-k">@interface</span> <span class="pl-en">NSFileManager</span> (Addition)
+
+<span class="pl-c">/**</span>
+<span class="pl-c"> *  在相应目录下创建一个文件夹。</span>
+<span class="pl-c"> *  @param  folder :文件夹名。</span>
+<span class="pl-c"> *  @param  path :文件夹所在路径。</span>
+<span class="pl-c"> *  return  成功返回YES，失败返回NO。若已存在直接返回YES。</span>
+<span class="pl-c"> */</span>
++ (<span class="pl-c1">BOOL</span>)<span class="pl-en">createFolder</span><span class="pl-en">:</span>(<span class="pl-c1">NSString</span> *)<span class="pl-smi">folder</span> <span class="pl-en">atPath</span><span class="pl-en">:</span>(<span class="pl-c1">NSString</span> *)<span class="pl-smi">path</span>;
+
+<span class="pl-c">/**</span>
+<span class="pl-c"> *  保存文件到相应路径下。</span>
+<span class="pl-c"> *  @param  data :要保存的数据。</span>
+<span class="pl-c"> *  @param  name :要保存的文件名，如a.txt等。</span>
+<span class="pl-c"> *  @param  path :文件保存的路径目录。</span>
+<span class="pl-c"> *  return  成功返回YES，失败返回NO。</span>
+<span class="pl-c"> */</span>
++ (<span class="pl-c1">BOOL</span>)<span class="pl-en">saveData</span><span class="pl-en">:</span>(<span class="pl-c1">NSData</span> *)<span class="pl-smi">data</span> <span class="pl-en">withName</span><span class="pl-en">:</span>(<span class="pl-c1">NSString</span> *)<span class="pl-smi">name</span> <span class="pl-en">atPath</span><span class="pl-en">:</span>(<span class="pl-c1">NSString</span> *)<span class="pl-smi">path</span>;
+
+<span class="pl-c">/**</span>
+<span class="pl-c"> *  查找并返回文件。</span>
+<span class="pl-c"> *  @param  fileName :要查找的文件名。</span>
+<span class="pl-c"> *  @param  path :文件所在的目录。</span>
+<span class="pl-c"> *  return  成功返回文件，失败返回nil。</span>
+<span class="pl-c"> */</span>
++ (<span class="pl-c1">NSData</span> *)<span class="pl-en">findFile</span><span class="pl-en">:</span>(<span class="pl-c1">NSString</span> *)<span class="pl-smi">fileName</span> <span class="pl-en">atPath</span><span class="pl-en">:</span>(<span class="pl-c1">NSString</span> *)<span class="pl-smi">path</span>;
+
+<span class="pl-c">/**</span>
+<span class="pl-c"> *  删除文件。</span>
+<span class="pl-c"> *  @param  fileName :要删除的文件名。</span>
+<span class="pl-c"> *  @param  path :文件所在的目录。</span>
+<span class="pl-c"> *  return  成功返回YES，失败返回NO。</span>
+<span class="pl-c"> */</span>
++ (<span class="pl-c1">BOOL</span>)<span class="pl-en">deleteFile</span><span class="pl-en">:</span>(<span class="pl-c1">NSString</span> *)<span class="pl-smi">fileName</span> <span class="pl-en">atPath</span><span class="pl-en">:</span>(<span class="pl-c1">NSString</span> *)<span class="pl-smi">path</span>;
+
+#<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">&lt;</span>Foundation/Foundation.h<span class="pl-pds">&gt;</span></span>
+
+<span class="pl-k">@interface</span> <span class="pl-en">NSDate</span> (Addition)
+<span class="pl-c">/**</span>
+<span class="pl-c"> *  将日期转化为字符串。</span>
+<span class="pl-c"> *  @param  format :转化格式，形如@"yyyy年MM月dd日hh时mm分ss秒"。</span>
+<span class="pl-c"> *  return  返回转化后的字符串。</span>
+<span class="pl-c"> */</span>
+- (<span class="pl-c1">NSString</span> *)<span class="pl-en">convertDateToStringWithFormat</span><span class="pl-en">:</span>(<span class="pl-c1">NSString</span> *)<span class="pl-smi">format</span>;
+
+<span class="pl-c">/**</span>
+<span class="pl-c"> *  将字符串转化为日期。</span>
+<span class="pl-c"> *  @param  string :给定的字符串日期。</span>
+<span class="pl-c"> *  @param  format :转化格式，形如@"yyyy年MM月dd日hh时mm分ss秒"。日期格式要和string格式一致，否则会为空。</span>
+<span class="pl-c"> *  return  返回转化后的日期。</span>
+<span class="pl-c"> */</span>
+- (<span class="pl-c1">NSDate</span> *)<span class="pl-en">convertStringToDate</span><span class="pl-en">:</span>(<span class="pl-c1">NSString</span> *)<span class="pl-smi">string</span> <span class="pl-en">format</span><span class="pl-en">:</span>(<span class="pl-c1">NSString</span> *)<span class="pl-smi">format</span>;
+</pre></div>
+
+<h2>
+<a id="aescrypto-des3util" class="anchor" href="#aescrypto-des3util" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>AESCrypto DES3Util</h2>
+
+<div class="highlight highlight-source-objc"><pre><span class="pl-c">// 加密方法</span>
++ (<span class="pl-c1">NSString</span>*)encrypt:(<span class="pl-c1">NSString</span>*)plainText;
+<span class="pl-c">// 解密方法</span>
++ (<span class="pl-c1">NSString</span>*)decrypt:(<span class="pl-c1">NSString</span>*)encryptText;</pre></div>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/roycms/Utils">Utils</a> is maintained by <a href="https://github.com/roycms">roycms</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
